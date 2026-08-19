@@ -9,7 +9,8 @@ env:
   LOCATION: eastus
   TEMPLATE-FILE: infra/webapp.bicep
   SUBSCRIPTION-ID: 5f9a646c-c0d7-4c62-bdca-67b13a48741d
-  WEBAPP-NAME: az2006app14081 
+  WEBAPP-NAME: az2006app14081
+  TENANT-ID: 0d8eb2d8-c544-49d4-827f-aa2f9a738484
 
 jobs:
   #Build, test and publish .net web project in repository
@@ -74,7 +75,7 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          tenant-id: "0d8eb2d8-c544-49d4-827f-aa2f9a738484"
+          tenant-id: ${{ env.TENANT-ID }}
           subscription-id: ${{ env.SUBSCRIPTION-ID }}
 
       # Deploy Azure WebApp using Bicep file
