@@ -75,7 +75,6 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          subscription-id: ${{ env.SUBSCRIPTION-ID }}
 
       # Deploy Azure WebApp using Bicep file
       - name: deploy
